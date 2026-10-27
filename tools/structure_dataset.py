@@ -6,9 +6,15 @@ import sys
 
 def restructure_dataset(base_dir):
     """
-    Function to restructure the Cam-can-dataset.
+    Restructures a dataset by moving nested participant directories to the 
+    root level while preserving their internal sub-folder hierarchy.
 
-    From folder/ folder/ subject_number to subject_number/ folder/ folder
+    Parameters
+    ----------
+    base_dir: str or pathlib.Path
+        The root directory of the dataset to be restructured.
+    ----------
+
     """
 
     base_dir = Path(base_dir)
@@ -50,7 +56,7 @@ def restructure_dataset(base_dir):
 
 def merge_and_move(src_path: Path, dst_path: Path):
     """
-    Merge same subject folders from meg/anat/cc700-scored
+    Merge same subject folders from subfolders (meg, anat, cc700-scored)
     """
     dst_path.mkdir(parents=True, exist_ok=True)
     
